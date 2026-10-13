@@ -216,7 +216,7 @@ proj = head("My recent projects", "Portfolio", "Five projects across vulnerabili
       </div>
       <div class="grid" id="proj-grid">{cards}
       </div>
-      <div class="callout" style="margin-top:32px;"><b>More on GitHub.</b> Source code and write-ups live in my <a href="{REPO}">cybersecurity-portfolio</a> repository.</div>
+      <div class="callout" style="margin-top:32px;"><b>More on GitHub.</b> Write-ups live in my <a href="{REPO}">cybersecurity-portfolio</a> repository and the chatbot has <a href="{GITHUB}/ai-chatbot">its own repo</a>.</div>
     </section>'''
 page("projects.html", f"Projects — {NAME}", "Cybersecurity projects: vulnerability assessment labs, Wireshark analysis, AI chatbot, AWS Kiro dashboard, and the ATCAP capstone.", "projects", proj)
 
@@ -281,7 +281,7 @@ BODY["atcap-capstone"] = f'''
 for p in PROJECTS:
     chips = "".join(f'<span class="chip">{c}</span>' for c in p["chips"])
     btns = "".join(f'<a class="btn btn--primary" href="{u}" target="_blank" rel="noopener">{l} {ARROW}</a>' for l, u in p["links"])
-    btns += f'<a class="btn btn--ghost" href="{REPO}/tree/main/{p["src"]}" target="_blank" rel="noopener">View on GitHub</a>'
+    btns += f'<a class="btn btn--ghost" href="{GITHUB + '/ai-chatbot' if p['slug'] == 'ai-chatbot' else REPO + '/tree/main/' + p['src']}" target="_blank" rel="noopener">View on GitHub</a>'
     body = f'''<a class="back" href="../projects.html">&larr; All projects</a>
     <section>
       {head(p["tag"], p["title"], p["desc"])}
