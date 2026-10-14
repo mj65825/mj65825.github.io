@@ -99,7 +99,6 @@ home = f'''
     <section class="hero" style="position:relative;">
       <div class="hero-bg" aria-hidden="true"><div class="hero-bg__glow"></div><div class="hero-bg__glow hero-bg__glow--2"></div></div>
       <div class="hero-flow">
-        <div class="status"><span class="status__dot"></span>ACTIVE &middot; Threat Research Lab, KnowBe4</div>
         <div class="prompt" aria-hidden="true">$ <span id="typed" data-text="whoami &rarr; melvin.jackson"></span><span class="caret"></span></div>
         <h1 class="hero__hello">Hi, I&rsquo;m <span class="hero__name-script">{NAME}!</span></h1>
         <h2 class="hero__role">I&rsquo;m a <span class="accent">Cybersecurity Analyst</span></h2>
@@ -111,7 +110,7 @@ home = f'''
           <a class="btn btn--ghost" href="contact.html">Contact</a>
         </div>
       </div>
-      <div class="portrait-wrap reveal"><div class="portrait"><img class="portrait__img" src="assets/headshot.jpg" alt="Portrait of {NAME}" /></div><div class="portrait-tag">ID &middot; MJ-2026 &middot; CLEARED FOR HIRE</div></div>
+      <div class="portrait-wrap reveal"><div class="portrait"><img class="portrait__img" src="assets/headshot.jpg" alt="Portrait of {NAME}" /></div></div>
     </section>'''
 page("index.html", f"{NAME} — Cybersecurity Analyst",
      f"{NAME}: cybersecurity analyst and threat researcher at KnowBe4. Security+ and AWS Certified Cloud Practitioner. Projects and resume.", "home", home)
