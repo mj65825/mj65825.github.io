@@ -7,6 +7,7 @@ LINKEDIN = "https://www.linkedin.com/in/melvin-jackson/"
 GITHUB = "https://github.com/mj65825"
 EMAIL = "melvin11jackson@gmail.com"
 REPO = GITHUB + "/cybersecurity-portfolio"
+RESUME = "MelvinJackson_Cybersecurity_Resume.pdf"
 
 ICONS = {
     "home": '<path d="M3 11l9-8 9 8"/><path d="M5 10v10h14V10"/>',
@@ -27,17 +28,14 @@ DOWN = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width=
 FAV = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.85em' font-size='90' font-family='monospace' fill='%231E88E5'%3EM%3C/text%3E%3C/svg%3E"
 
 
-def page(fname, title, desc, active, body, depth=0):
+def page(fname, title, desc, body, depth=0):
     p = "../" * depth
-    nav = ""
-    for key, label, href in NAV:
-        cls = "sidebar__link" + (" is-active" if key == active else "")
-        dl = " download" if href.endswith(".pdf") else ""
-        nav += f'<a href="{p}{href}" class="{cls}"{dl}><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">{ICONS[key]}</svg>{label}</a>\n'
-    social = (f'<a class="icon-btn" href="{LINKEDIN}" aria-label="LinkedIn" target="_blank" rel="noopener">{LI}</a>'
-              f'<a class="icon-btn" href="{GITHUB}" aria-label="GitHub" target="_blank" rel="noopener">{GH}</a>'
-              f'<a class="icon-btn" href="mailto:{EMAIL}" aria-label="Email">{MAIL}</a>')
-    fsocial = social.replace("icon-btn", "").replace('class=" "', "")
+    home = p + "index.html"
+    secs = [("about", "About"), ("projects", "Projects"), ("experience", "Experience"), ("skills", "Skills"), ("contact", "Contact")]
+    links = "".join(f'<a class="nav__link" data-sec="{k}" href="{home if depth else ""}#{k}">{v}</a>' for k, v in secs)
+    social = (f'<a href="{LINKEDIN}" aria-label="LinkedIn" target="_blank" rel="noopener">{LI}</a>'
+              f'<a href="{GITHUB}" aria-label="GitHub" target="_blank" rel="noopener">{GH}</a>'
+              f'<a href="mailto:{EMAIL}" aria-label="Email">{MAIL}</a>')
     swatches = "".join(f'<span class="swatch" data-color="{c}" role="button" tabindex="0" aria-label="{c.title()}"></span>' for c in ["gold", "blue", "teal", "violet", "rose", "amber"])
     out = f'''<!doctype html>
 <html lang="en" data-theme="dark" data-color="gold">
@@ -52,34 +50,32 @@ def page(fname, title, desc, active, body, depth=0):
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=IBM+Plex+Mono:wght@400;500;600&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="{p}styles.css" />
+<link rel="stylesheet" href="{p}styles.css?v=3" />
 <script>try{{var d=document.documentElement,t=localStorage.getItem('theme'),c=localStorage.getItem('color');if(t)d.dataset.theme=t;if(c)d.dataset.color=c}}catch(e){{}}</script>
 </head>
-<body>
+<body id="top">
 <a class="skip" href="#main">Skip to content</a>
-<button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-controls="sidebar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M4 6h16M4 12h16M4 18h16"/></svg></button>
-<aside class="sidebar" id="sidebar" aria-label="Primary">
-  <div class="sidebar__brand"><span class="sidebar__name">{NAME}</span></div>
-  <nav class="sidebar__nav">
-{nav}  </nav>
-  <div class="sidebar__foot">{social}</div>
-</aside>
-<div class="utility">
-  <button class="util-btn" id="themeToggle" aria-label="Toggle light/dark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg></button>
-  <button class="util-btn" id="paletteToggle" aria-label="Theme color"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c1 0 1.5-.7 1.5-1.5 0-.4-.2-.8-.5-1-.3-.3-.5-.6-.5-1 0-.8.7-1.5 1.5-1.5H16c3.3 0 6-2.7 6-6 0-4.7-4.5-8.5-10-8.5z"/></svg></button>
+<header class="nav" role="banner">
+  <a class="nav__brand" href="{home}" aria-label="Home">Melvin</a>
+  <nav class="nav__links" aria-label="Primary">{links}</nav>
+  <a class="nav__resume" href="{p}{RESUME}" download aria-label="Download resume">{DOWN}<span>Resume</span></a>
+  <div class="nav__tools">
+    <button class="tool" id="themeToggle" aria-label="Toggle light/dark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg></button>
+    <button class="tool" id="paletteToggle" aria-label="Theme color"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c1 0 1.5-.7 1.5-1.5 0-.4-.2-.8-.5-1-.3-.3-.5-.6-.5-1 0-.8.7-1.5 1.5-1.5H16c3.3 0 6-2.7 6-6 0-4.7-4.5-8.5-10-8.5z"/></svg></button>
+  </div>
   <div class="color-picker" id="colorPicker" role="group" aria-label="Accent color"><span class="color-picker__label">Theme</span>{swatches}</div>
-</div>
+</header>
 <main id="main">
-  <div class="wrap">
 {body}
+  <div class="wrap">
     <footer class="foot">
       <span>&copy; 2026 {NAME}</span>
-      <div class="foot__social">{fsocial}</div>
+      <div class="foot__social">{social}</div>
     </footer>
   </div>
 </main>
 <button class="to-top" id="toTop" aria-label="Back to top"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 15l7-7 7 7"/></svg></button>
-<script src="{p}main.js"></script>
+<script src="{p}main.js?v=3"></script>
 </body>
 </html>
 '''
@@ -90,77 +86,10 @@ def page(fname, title, desc, active, body, depth=0):
 
 
 def head(eyebrow, title, lead=""):
-    l = f'<p class="hero__lead" style="margin-top:14px;">{lead}</p>' if lead else ""
-    return f'<div class="h-block"><div class="h-eyebrow">// {eyebrow}</div><h1 class="h-title">{title}</h1><div class="h-rule"></div>{l}</div>'
+    l = f'<p class="d-lead">{lead}</p>' if lead else ""
+    return f'<div class="eyebrow">{eyebrow}</div><h1 class="d-title">{title}</h1>{l}'
 
 
-# ---------------------------------------------------------------- home
-home = f'''
-    <section class="hero" style="position:relative;">
-      <div class="hero-bg" aria-hidden="true"><div class="hero-bg__glow"></div><div class="hero-bg__glow hero-bg__glow--2"></div></div>
-      <div class="hero-flow">
-        <div class="hero__eyebrow">Cybersecurity &middot; Northern Virginia</div>
-        <h1 class="hero__hello">Hi, I&rsquo;m <span class="hero__name-script">{NAME}!</span></h1>
-        <h2 class="hero__role">I&rsquo;m a <span class="accent">Cybersecurity Analyst</span></h2>
-        <p class="hero__lead">I research phishing and malware as a Threat Researcher at KnowBe4. I also have hands-on experience in vulnerability assessment, mobile application security, and AI risk and governance. This site shows my projects and what I learned from each one.</p>
-        <div class="badges"><span class="badge"><b>CompTIA</b> Security+</span><span class="badge"><b>AWS</b> Cloud Practitioner</span><span class="badge"><b>GMU</b> B.S. IT &middot; 3.7 GPA</span></div>
-        <div class="hero__ctas">
-          <a class="btn btn--primary" href="projects.html">View Projects {ARROW}</a>
-          <a class="btn btn--ghost" href="MelvinJackson_Cybersecurity_Resume.pdf" download>Resume {DOWN}</a>
-          <a class="btn btn--ghost" href="contact.html">Contact</a>
-        </div>
-      </div>
-      <div class="portrait-wrap reveal"><div class="portrait"><img class="portrait__img" src="assets/headshot.jpg" alt="Portrait of {NAME}" /></div></div>
-    </section>'''
-page("index.html", f"{NAME} — Cybersecurity Analyst",
-     f"{NAME}: cybersecurity analyst and threat researcher at KnowBe4. Security+ and AWS Certified Cloud Practitioner. Projects and resume.", "home", home)
-
-# ---------------------------------------------------------------- about
-about = head("About me", "About", "Cybersecurity associate focused on threat research, vulnerability assessment, and clear communication.") + f'''
-    <section class="reveal prose">
-      <p>I&rsquo;m a cybersecurity analyst and a recent <strong>George Mason University</strong> graduate (B.S. in Information Technology, Cybersecurity concentration, 3.7 GPA). I&rsquo;m a Threat Researcher at <strong>KnowBe4</strong>, where I investigate phishing emails, analyze malware, and track threat campaigns.</p>
-      <p>Before that I completed internships in mobile application security at <strong>NowSecure</strong>, AI risk and governance at <strong>InterSec</strong>, and enterprise vulnerability assessment with the <strong>Department of Homeland Security</strong>.</p>
-      <p>I like turning technical findings into something both engineers and non-technical readers can act on. Outside work I keep learning through labs, workshops, and personal projects, and I write about them on LinkedIn.</p>
-      <h2 class="sec">Certifications</h2>
-      <div class="meta"><span class="chip">CompTIA Security+</span><span class="chip">AWS Certified Cloud Practitioner</span></div>
-      <h2 class="sec">Education</h2>
-      <p><strong>George Mason University</strong><br>B.S. Information Technology, Concentration in Cybersecurity &middot; May 2026 &middot; GPA 3.7</p>
-      <h2 class="sec">Skills</h2>
-    </section>
-    <div class="skills reveal">
-      <div class="skillbox"><h3>Security</h3><span class="chip">Threat Hunting</span><span class="chip">Email Security</span><span class="chip">Vulnerability Management</span><span class="chip">Application Security</span><span class="chip">Network Security</span><span class="chip">Digital Forensics</span><span class="chip">Cloud Security</span></div>
-      <div class="skillbox"><h3>Frameworks</h3><span class="chip">NIST</span><span class="chip">MITRE ATT&amp;CK</span><span class="chip">FedRAMP</span><span class="chip">Zero Trust</span><span class="chip">ISO 27001</span></div>
-      <div class="skillbox"><h3>Tools</h3><span class="chip">Nmap</span><span class="chip">OpenVAS</span><span class="chip">Tenable / Nessus</span><span class="chip">Wireshark</span><span class="chip">SIEM</span></div>
-      <div class="skillbox"><h3>Languages and systems</h3><span class="chip">Python</span><span class="chip">SQL</span><span class="chip">MongoDB</span><span class="chip">Windows</span><span class="chip">macOS</span><span class="chip">Linux</span></div>
-    </div>'''
-page("about.html", f"About — {NAME}", f"About {NAME}: threat researcher, GMU graduate, Security+ and AWS Cloud Practitioner.", "about", about)
-
-# ---------------------------------------------------------------- experience
-def tl(date, role, org, bullets):
-    li = "".join(f"<li>{b}</li>" for b in bullets)
-    return f'<div class="tl__item"><div class="tl__date">{date}</div><div class="tl__role">{role}</div><div class="tl__org">{org}</div><ul class="list">{li}</ul></div>'
-
-exp = head("Where I&rsquo;ve worked", "Experience") + '<div class="tl reveal">' + "".join([
-    tl("Jul 2026 &ndash; Present", "Cybersecurity Threat Researcher", "KnowBe4 &middot; Arlington, VA", [
-        "Investigate phishing emails, analyze malware, and track threat campaigns in the KnowBe4 Threat Research Lab.",
-        "Label and classify thousands of emails daily to refine detection logic, contributing to a 30%+ reduction in false positives and false negatives.",
-        "Analyze large datasets to establish threat patterns across regions, industries, and business segments.",
-        "Deploy and configure endpoint, email, web, and network protection to support threat research and detection workflows.",
-        "Triage and respond to alerts from the email platform and contribute to external-facing Threat Labs research content."]),
-    tl("Jan 2026 &ndash; Apr 2026", "Mobile Application Security Intern", "NowSecure &middot; Vienna, VA", [
-        "Static and dynamic analysis of Android and iOS applications to find vulnerabilities, malicious behaviors, and security risks.",
-        "Guided mobile application testing on the NowSecure platform, and research comparing open-source, commercial, and traditional AI pentesting tools."]),
-    tl("Oct 2025 &ndash; Dec 2025", "Commonwealth Cybersecurity Initiative Intern", "InterSec &middot; Leesburg, VA", [
-        "Led a multi-phase AI risk and cybersecurity initiative evaluating governance controls, data management, and control effectiveness.",
-        "Produced compliance findings and policy recommendations for senior leadership."]),
-    tl("Jun 2025 &ndash; Sep 2025", "Vulnerability Assessment Team Intern", "Dept. of Homeland Security &middot; Ashburn, VA", [
-        "Ran enterprise vulnerability assessments with Nmap, OpenVAS, and Tenable, finding exposed services, misconfigurations, and high-risk vulnerabilities.",
-        "Analyzed CVE and CVSS data to build risk-prioritized remediation queues.",
-        "Evaluated AI-enabled vulnerability management platforms and delivered recommendations that saved 100+ analyst hours."]),
-    tl("Aug 2025 &ndash; May 2026", "IT Consulting Capstone, Team Lead", "ATCAP Home Healthcare Solutions &middot; George Mason University", [
-        "Led a five-person team delivering three IT solutions for a healthcare client. <a class=\"accent\" href=\"projects/atcap-capstone.html\">Read the case study</a>."]),
-]) + "</div>"
-page("experience.html", f"Experience — {NAME}", f"Work and internship experience of {NAME}: KnowBe4, NowSecure, InterSec, DHS.", "exp", exp)
 
 # ---------------------------------------------------------------- projects data
 PROJECTS = [
@@ -186,39 +115,6 @@ PROJECTS = [
          foot="PYTHON &middot; MIT &middot; 20 TESTS", thumb=("code", ["$ python app.py", "{ provider: \"gemini\" | \"ollama\", tests: 20 }", "&rarr; streaming &middot; memory &middot; save/load"]),
          chips=["Python", "Gradio", "Gemini API", "Ollama", "pytest"], links=[], src="Projects/AI-Chatbot"),
 ]
-
-# ---------------------------------------------------------------- projects index
-cards = ""
-for p in PROJECTS:
-    kind, val = p["thumb"]
-    if kind == "img":
-        th = f'<div class="card__thumb"><img src="{val}" alt="" loading="lazy"></div>'
-    else:
-        th = f'<div class="card__thumb card__thumb--code" aria-hidden="true"><div><div style="opacity:.55;">{val[0]}</div><div style="margin-top:6px;color:#C3E88D;">{val[1]}</div><div style="margin-top:2px;color:#C3E88D;">{val[2]}</div></div></div>'
-    cards += f'''
-        <a class="card reveal" href="projects/{p["slug"]}.html" data-tags="{p["tags"]}" aria-label="{html.escape(p["title"])}">
-          {th}
-          <div class="card__body">
-            <span class="card__tag">{p["tag"]}</span>
-            <h3 class="card__title">{p["title"]}</h3>
-            <p class="card__desc">{p["desc"]}</p>
-            <div class="card__foot"><span>{p["foot"]}</span><span class="card__cta">Open &rarr;</span></div>
-          </div>
-        </a>'''
-proj = head("My recent projects", "Portfolio", "Five projects across vulnerability management, network analysis, AI-assisted development, and team leadership. Filter by focus area.") + f'''
-    <section>
-      <div class="filter" role="tablist" aria-label="Filter projects">
-        <button class="filter__btn is-active" data-filter="all" role="tab" aria-selected="true">All</button>
-        <button class="filter__btn" data-filter="vuln" role="tab" aria-selected="false">Vulnerability Management</button>
-        <button class="filter__btn" data-filter="detection" role="tab" aria-selected="false">Detection</button>
-        <button class="filter__btn" data-filter="ai" role="tab" aria-selected="false">AI &amp; Development</button>
-        <button class="filter__btn" data-filter="leadership" role="tab" aria-selected="false">Leadership</button>
-      </div>
-      <div class="grid" id="proj-grid">{cards}
-      </div>
-      <div class="callout" style="margin-top:32px;"><b>More on GitHub.</b> Write-ups live in my <a href="{REPO}">cybersecurity-portfolio</a> repository and the chatbot has <a href="{GITHUB}/ai-chatbot">its own repo</a>.</div>
-    </section>'''
-page("projects.html", f"Projects — {NAME}", "Cybersecurity projects: vulnerability assessment labs, Wireshark analysis, AI chatbot, AWS Kiro dashboard, and the ATCAP capstone.", "projects", proj)
 
 # ---------------------------------------------------------------- project details
 def shots(*items):
@@ -282,21 +178,148 @@ for p in PROJECTS:
     chips = "".join(f'<span class="chip">{c}</span>' for c in p["chips"])
     btns = "".join(f'<a class="btn btn--primary" href="{u}" target="_blank" rel="noopener">{l} {ARROW}</a>' for l, u in p["links"])
     btns += f'<a class="btn btn--ghost" href="{GITHUB + '/ai-chatbot' if p['slug'] == 'ai-chatbot' else REPO + '/tree/main/' + p['src']}" target="_blank" rel="noopener">View on GitHub</a>'
-    body = f'''<a class="back" href="../projects.html">&larr; All projects</a>
-    <section>
+    body = f'''<section class="wrap detail"><div class="body"><a class="back" href="../index.html#projects">&larr; All projects</a>
       {head(p["tag"], p["title"], p["desc"])}
       <div class="meta">{chips}</div>
       <div class="hero__ctas" style="margin-top:16px;">{btns}</div>{BODY[p["slug"]]}
-    </section>'''
-    page(f'projects/{p["slug"]}.html', f'{p["title"]} — {NAME}', p["desc"], "projects", body, depth=1)
+    </div></section>'''
+    page(f'projects/{p["slug"]}.html', f'{p["title"]} — {NAME}', p["desc"], body, depth=1)
 
-# ---------------------------------------------------------------- contact
-contact = head("Get in touch", "Contact", "I&rsquo;m open to cybersecurity roles and happy to talk about threat research, vulnerability management, and security projects.") + f'''
-    <div class="contact-grid reveal">
-      <a class="contact-card" href="mailto:{EMAIL}"><small>Email</small><span>{EMAIL}</span></a>
-      <a class="contact-card" href="{LINKEDIN}" target="_blank" rel="noopener"><small>LinkedIn</small><span>linkedin.com/in/melvin-jackson</span></a>
-      <a class="contact-card" href="{GITHUB}" target="_blank" rel="noopener"><small>GitHub</small><span>github.com/mj65825</span></a>
-      <a class="contact-card" href="MelvinJackson_Cybersecurity_Resume.pdf" download><small>Resume</small><span>Download PDF</span></a>
-    </div>'''
-page("contact.html", f"Contact — {NAME}", f"Contact {NAME} by email, LinkedIn, or GitHub.", "contact", contact)
+
+# ---------------------------------------------------------------- one-page home
+def sec_head(num, title, sub=""):
+    s = f'<p class="sec-sub">{sub}</p>' if sub else ""
+    return f'<div class="sec-head"><span class="sec-num">{num}</span><div><h2 class="sec-title">{title}</h2>{s}</div></div>'
+
+
+def xp(date, role, org, bullets):
+    li = "".join(f"<li>{b}</li>" for b in bullets)
+    return f'<article class="xp"><div class="xp__date">{date}</div><h3 class="xp__role">{role}</h3><div class="xp__org">{org}</div><ul>{li}</ul></article>'
+
+
+cards = ""
+for p in PROJECTS:
+    kind, val = p["thumb"]
+    if kind == "img":
+        th = f'<div class="pcard__thumb"><img src="{val}" alt="" loading="lazy"></div>'
+    else:
+        th = f'<div class="pcard__thumb pcard__thumb--code" aria-hidden="true"><div><div style="opacity:.55;">{val[0]}</div><div class="ln">{val[1]}</div><div class="ln">{val[2]}</div></div></div>'
+    cards += f'''
+        <a class="pcard reveal" href="projects/{p["slug"]}.html" data-tags="{p["tags"]}" aria-label="{html.escape(p["title"])}">
+          {th}
+          <div class="pcard__body">
+            <span class="pcard__tag">{p["tag"]}</span>
+            <h3 class="pcard__title">{p["title"]}</h3>
+            <p class="pcard__desc">{p["desc"]}</p>
+            <div class="pcard__foot"><span>{p["foot"]}</span><b>Open &rarr;</b></div>
+          </div>
+        </a>'''
+
+skills_marquee = ["Threat Hunting", "Email Security", "Malware Analysis", "Vulnerability Management", "Nmap", "OpenVAS", "Tenable", "Wireshark",
+                  "MITRE ATT&amp;CK", "NIST", "FedRAMP", "Zero Trust", "ISO 27001", "Python", "SQL", "Cloud Security"]
+mq = "".join(f"<span>{s}</span>" for s in skills_marquee)
+
+index = f'''
+  <section class="wrap hero" id="home">
+    <div class="hero__text">
+      <div class="eyebrow">Cybersecurity &middot; Northern Virginia</div>
+      <p class="hero__hello">Hi, I&rsquo;m</p>
+      <h1 class="hero__name">{NAME}!</h1>
+      <h2 class="hero__role">I&rsquo;m a <span class="accent">Cybersecurity Analyst</span></h2>
+      <p class="hero__lead">I research phishing and malware as a Threat Researcher at KnowBe4. I also have hands-on experience in vulnerability assessment, mobile application security, and AI risk and governance. This site shows my projects and what I learned from each one.</p>
+      <div class="ctas">
+        <a class="btn btn--primary" href="#projects">View Projects {ARROW}</a>
+        <a class="btn btn--ghost" href="{RESUME}" download>Resume {DOWN}</a>
+        <a class="btn btn--ghost" href="#contact">Contact</a>
+      </div>
+    </div>
+    <div class="arch reveal">
+      <div class="arch__ring"></div>
+      <img class="arch__img" src="assets/headshot.jpg" alt="Portrait of {NAME}" />
+      <div class="arch__dot" aria-hidden="true">MJ</div>
+    </div>
+  </section>
+
+  <div class="marquee" aria-hidden="true"><div class="marquee__track">{mq}{mq}</div></div>
+
+  <section class="wrap section" id="about">
+    {sec_head("01", "About me", "Cybersecurity associate focused on threat research, vulnerability assessment, and clear communication.")}
+    <div class="bento">
+      <div class="tile span2 row2 reveal">
+        <div class="tile__label">Who I am</div>
+        <h3>Threat Researcher at KnowBe4</h3>
+        <p>I investigate phishing emails, analyze malware, and track threat campaigns. Before that I completed internships in mobile application security at NowSecure, AI risk and governance at InterSec, and enterprise vulnerability assessment with the Department of Homeland Security.</p>
+        <p style="margin-top:12px;">I like turning technical findings into something both engineers and non-technical readers can act on, and I keep learning through labs, workshops, and personal projects.</p>
+      </div>
+      <div class="tile reveal"><div class="stat">30%+</div><p>fewer false positives and false negatives from email classification work at KnowBe4</p></div>
+      <div class="tile reveal"><div class="stat">100+</div><p>analyst hours saved by recommendations from a DHS vulnerability platform evaluation</p></div>
+      <div class="tile tile--gold reveal"><div class="tile__label">Education</div><h3>George Mason University</h3><p>B.S. Information Technology, Cybersecurity &middot; May 2026 &middot; GPA 3.7</p></div>
+      <div class="tile reveal"><div class="tile__label">Certifications</div><div class="certs"><span class="chip">CompTIA Security+</span><span class="chip">AWS Certified Cloud Practitioner</span></div></div>
+    </div>
+  </section>
+
+  <section class="wrap section" id="projects">
+    {sec_head("02", "Projects", "Five projects across vulnerability management, network analysis, AI-assisted development, and team leadership.")}
+    <div class="filter" role="tablist" aria-label="Filter projects">
+      <button class="filter__btn is-active" data-filter="all" role="tab" aria-selected="true">All</button>
+      <button class="filter__btn" data-filter="vuln" role="tab" aria-selected="false">Vulnerability Management</button>
+      <button class="filter__btn" data-filter="detection" role="tab" aria-selected="false">Detection</button>
+      <button class="filter__btn" data-filter="ai" role="tab" aria-selected="false">AI &amp; Development</button>
+      <button class="filter__btn" data-filter="leadership" role="tab" aria-selected="false">Leadership</button>
+    </div>
+    <div class="pgrid" id="proj-grid">{cards}
+    </div>
+    <div class="callout" style="margin-top:26px;"><b>More on GitHub.</b> Write-ups live in my <a href="{REPO}">cybersecurity-portfolio</a> repository and the chatbot has <a href="{GITHUB}/ai-chatbot">its own repo</a>.</div>
+  </section>
+
+  <section class="wrap section" id="experience">
+    {sec_head("03", "Experience", "Where I&rsquo;ve worked and interned.")}
+    <div class="scroller">
+      {xp("Jul 2026 &ndash; Present", "Cybersecurity Threat Researcher", "KnowBe4 &middot; Arlington, VA", [
+          "Investigate phishing emails, analyze malware, and track threat campaigns in the Threat Research Lab.",
+          "Label and classify thousands of emails daily to refine detection logic, contributing to a 30%+ reduction in false positives and false negatives.",
+          "Analyze large datasets to establish threat patterns across regions, industries, and business segments.",
+          "Deploy and configure endpoint, email, web, and network protection to support threat research.",
+          "Triage alerts and contribute to external-facing Threat Labs research content."])}
+      {xp("Jan 2026 &ndash; Apr 2026", "Mobile Application Security Intern", "NowSecure &middot; Vienna, VA", [
+          "Static and dynamic analysis of Android and iOS applications to find vulnerabilities and malicious behaviors.",
+          "Guided mobile app testing on the NowSecure platform, plus research comparing open-source, commercial, and traditional AI pentesting tools."])}
+      {xp("Oct 2025 &ndash; Dec 2025", "Commonwealth Cybersecurity Initiative Intern", "InterSec &middot; Leesburg, VA", [
+          "Led a multi-phase AI risk and cybersecurity initiative evaluating governance controls, data management, and control effectiveness.",
+          "Produced compliance findings and policy recommendations for senior leadership."])}
+      {xp("Jun 2025 &ndash; Sep 2025", "Vulnerability Assessment Team Intern", "Dept. of Homeland Security &middot; Ashburn, VA", [
+          "Ran enterprise vulnerability assessments with Nmap, OpenVAS, and Tenable.",
+          "Analyzed CVE and CVSS data to build risk-prioritized remediation queues.",
+          "Evaluated AI-enabled vulnerability management platforms and saved 100+ analyst hours."])}
+      {xp("Aug 2025 &ndash; May 2026", "IT Consulting Capstone, Team Lead", "ATCAP Home Healthcare Solutions &middot; GMU", [
+          "Led a five-person team delivering three IT solutions for a healthcare client.",
+          'Website uptime went from about 25% to about 99.9%. <a href="projects/atcap-capstone.html">Read the case study</a>.'])}
+    </div>
+    <p class="hint">Swipe or scroll &rarr;</p>
+  </section>
+
+  <section class="wrap section" id="skills">
+    {sec_head("04", "Skills", "Tools, frameworks, and languages I work with.")}
+    <div class="bento">
+      <div class="tile reveal"><div class="tile__label">Security</div><span class="chip">Threat Hunting</span><span class="chip">Email Security</span><span class="chip">Vulnerability Management</span><span class="chip">Application Security</span><span class="chip">Network Security</span><span class="chip">Digital Forensics</span><span class="chip">Cloud Security</span></div>
+      <div class="tile reveal"><div class="tile__label">Frameworks</div><span class="chip">NIST</span><span class="chip">MITRE ATT&amp;CK</span><span class="chip">FedRAMP</span><span class="chip">Zero Trust</span><span class="chip">ISO 27001</span></div>
+      <div class="tile reveal"><div class="tile__label">Tools</div><span class="chip">Nmap</span><span class="chip">OpenVAS</span><span class="chip">Tenable / Nessus</span><span class="chip">Wireshark</span><span class="chip">SIEM</span></div>
+      <div class="tile reveal"><div class="tile__label">Languages &amp; systems</div><span class="chip">Python</span><span class="chip">SQL</span><span class="chip">MongoDB</span><span class="chip">Windows</span><span class="chip">macOS</span><span class="chip">Linux</span></div>
+    </div>
+  </section>
+
+  <section class="wrap section" id="contact">
+    {sec_head("05", "Contact", "Open to cybersecurity roles. Happy to talk about threat research, vulnerability management, and security projects.")}
+    <div class="contact">
+      <div class="tile tile--gold reveal"><div class="tile__label">Let&rsquo;s talk</div><div class="contact__big">Let&rsquo;s build something secure.</div>
+        <div class="ctas"><a class="btn" style="background:#0a0a0b;color:#fff;border-color:#0a0a0b;" href="{RESUME}" download>Download resume {DOWN}</a></div></div>
+      <div class="clinks reveal">
+        <a class="clink" href="mailto:{EMAIL}"><div><small>Email</small><span>{EMAIL}</span></div>{ARROW}</a>
+        <a class="clink" href="{LINKEDIN}" target="_blank" rel="noopener"><div><small>LinkedIn</small><span>linkedin.com/in/melvin-jackson</span></div>{ARROW}</a>
+        <a class="clink" href="{GITHUB}" target="_blank" rel="noopener"><div><small>GitHub</small><span>github.com/mj65825</span></div>{ARROW}</a>
+      </div>
+    </div>
+  </section>'''
+page("index.html", f"{NAME} — Cybersecurity Analyst",
+     f"{NAME}: cybersecurity analyst and threat researcher at KnowBe4. Security+ and AWS Certified Cloud Practitioner. Projects and resume.", index)
 print("built")

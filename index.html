@@ -11,55 +11,162 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=IBM+Plex+Mono:wght@400;500;600&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="styles.css" />
+<link rel="stylesheet" href="styles.css?v=3" />
 <script>try{var d=document.documentElement,t=localStorage.getItem('theme'),c=localStorage.getItem('color');if(t)d.dataset.theme=t;if(c)d.dataset.color=c}catch(e){}</script>
 </head>
-<body>
+<body id="top">
 <a class="skip" href="#main">Skip to content</a>
-<button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-controls="sidebar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M4 6h16M4 12h16M4 18h16"/></svg></button>
-<aside class="sidebar" id="sidebar" aria-label="Primary">
-  <div class="sidebar__brand"><span class="sidebar__name">Melvin Jackson</span></div>
-  <nav class="sidebar__nav">
-<a href="index.html" class="sidebar__link is-active"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-8 9 8"/><path d="M5 10v10h14V10"/></svg>Home</a>
-<a href="about.html" class="sidebar__link"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-7 8-7s8 3 8 7"/></svg>About</a>
-<a href="experience.html" class="sidebar__link"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7h18v13H3z"/><path d="M8 7V4h8v3"/><path d="M3 13h18"/></svg>Experience</a>
-<a href="projects.html" class="sidebar__link"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 4h6v6H3zM15 4h6v6h-6zM3 14h6v6H3zM15 14h6v6h-6z"/></svg>Projects</a>
-<a href="MelvinJackson_Cybersecurity_Resume.pdf" class="sidebar__link" download><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H6v18h12V7z"/><path d="M14 3v4h4"/><path d="M9 13h6M9 17h6"/></svg>Resume</a>
-<a href="contact.html" class="sidebar__link"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H8l-5 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>Contact</a>
-  </nav>
-  <div class="sidebar__foot"><a class="icon-btn" href="https://www.linkedin.com/in/melvin-jackson/" aria-label="LinkedIn" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5A2.5 2.5 0 1 1 5 8.5a2.5 2.5 0 0 1-.02-5zM3 9.5h4v11H3zm7 0h3.8v1.6h.06c.53-.9 1.83-1.9 3.77-1.9C21.3 9.2 22 11.5 22 14.3V20.5h-4v-5.5c0-1.32-.02-3-1.83-3-1.83 0-2.11 1.43-2.11 2.9v5.6h-4z"/></svg></a><a class="icon-btn" href="https://github.com/mj65825" aria-label="GitHub" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5a11.5 11.5 0 0 0-3.64 22.42c.58.11.79-.25.79-.56v-2c-3.2.7-3.87-1.36-3.87-1.36-.53-1.34-1.3-1.7-1.3-1.7-1.05-.72.08-.7.08-.7 1.17.08 1.78 1.2 1.78 1.2 1.04 1.77 2.72 1.26 3.38.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.68 0-1.25.45-2.28 1.19-3.08-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11 11 0 0 1 5.79 0c2.2-1.49 3.17-1.18 3.17-1.18.64 1.59.24 2.76.12 3.05.74.8 1.19 1.83 1.19 3.08 0 4.41-2.7 5.38-5.27 5.67.41.35.77 1.04.77 2.1v3.11c0 .31.21.68.8.56A11.5 11.5 0 0 0 12 .5z"/></svg></a><a class="icon-btn" href="mailto:melvin11jackson@gmail.com" aria-label="Email"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></a></div>
-</aside>
-<div class="utility">
-  <button class="util-btn" id="themeToggle" aria-label="Toggle light/dark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg></button>
-  <button class="util-btn" id="paletteToggle" aria-label="Theme color"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c1 0 1.5-.7 1.5-1.5 0-.4-.2-.8-.5-1-.3-.3-.5-.6-.5-1 0-.8.7-1.5 1.5-1.5H16c3.3 0 6-2.7 6-6 0-4.7-4.5-8.5-10-8.5z"/></svg></button>
+<header class="nav" role="banner">
+  <a class="nav__brand" href="index.html" aria-label="Home">Melvin</a>
+  <nav class="nav__links" aria-label="Primary"><a class="nav__link" data-sec="about" href="#about">About</a><a class="nav__link" data-sec="projects" href="#projects">Projects</a><a class="nav__link" data-sec="experience" href="#experience">Experience</a><a class="nav__link" data-sec="skills" href="#skills">Skills</a><a class="nav__link" data-sec="contact" href="#contact">Contact</a></nav>
+  <a class="nav__resume" href="MelvinJackson_Cybersecurity_Resume.pdf" download aria-label="Download resume"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v12M6 10l6 6 6-6M4 20h16"/></svg><span>Resume</span></a>
+  <div class="nav__tools">
+    <button class="tool" id="themeToggle" aria-label="Toggle light/dark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg></button>
+    <button class="tool" id="paletteToggle" aria-label="Theme color"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c1 0 1.5-.7 1.5-1.5 0-.4-.2-.8-.5-1-.3-.3-.5-.6-.5-1 0-.8.7-1.5 1.5-1.5H16c3.3 0 6-2.7 6-6 0-4.7-4.5-8.5-10-8.5z"/></svg></button>
+  </div>
   <div class="color-picker" id="colorPicker" role="group" aria-label="Accent color"><span class="color-picker__label">Theme</span><span class="swatch" data-color="gold" role="button" tabindex="0" aria-label="Gold"></span><span class="swatch" data-color="blue" role="button" tabindex="0" aria-label="Blue"></span><span class="swatch" data-color="teal" role="button" tabindex="0" aria-label="Teal"></span><span class="swatch" data-color="violet" role="button" tabindex="0" aria-label="Violet"></span><span class="swatch" data-color="rose" role="button" tabindex="0" aria-label="Rose"></span><span class="swatch" data-color="amber" role="button" tabindex="0" aria-label="Amber"></span></div>
-</div>
+</header>
 <main id="main">
-  <div class="wrap">
 
-    <section class="hero" style="position:relative;">
-      <div class="hero-bg" aria-hidden="true"><div class="hero-bg__glow"></div><div class="hero-bg__glow hero-bg__glow--2"></div></div>
-      <div class="hero-flow">
-        <div class="hero__eyebrow">Cybersecurity &middot; Northern Virginia</div>
-        <h1 class="hero__hello">Hi, I&rsquo;m <span class="hero__name-script">Melvin Jackson!</span></h1>
-        <h2 class="hero__role">I&rsquo;m a <span class="accent">Cybersecurity Analyst</span></h2>
-        <p class="hero__lead">I research phishing and malware as a Threat Researcher at KnowBe4. I also have hands-on experience in vulnerability assessment, mobile application security, and AI risk and governance. This site shows my projects and what I learned from each one.</p>
-        <div class="badges"><span class="badge"><b>CompTIA</b> Security+</span><span class="badge"><b>AWS</b> Cloud Practitioner</span><span class="badge"><b>GMU</b> B.S. IT &middot; 3.7 GPA</span></div>
-        <div class="hero__ctas">
-          <a class="btn btn--primary" href="projects.html">View Projects <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
-          <a class="btn btn--ghost" href="MelvinJackson_Cybersecurity_Resume.pdf" download>Resume <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v12M6 10l6 6 6-6M4 20h16"/></svg></a>
-          <a class="btn btn--ghost" href="contact.html">Contact</a>
-        </div>
+  <section class="wrap hero" id="home">
+    <div class="hero__text">
+      <div class="eyebrow">Cybersecurity &middot; Northern Virginia</div>
+      <p class="hero__hello">Hi, I&rsquo;m</p>
+      <h1 class="hero__name">Melvin Jackson!</h1>
+      <h2 class="hero__role">I&rsquo;m a <span class="accent">Cybersecurity Analyst</span></h2>
+      <p class="hero__lead">I research phishing and malware as a Threat Researcher at KnowBe4. I also have hands-on experience in vulnerability assessment, mobile application security, and AI risk and governance. This site shows my projects and what I learned from each one.</p>
+      <div class="ctas">
+        <a class="btn btn--primary" href="#projects">View Projects <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
+        <a class="btn btn--ghost" href="MelvinJackson_Cybersecurity_Resume.pdf" download>Resume <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v12M6 10l6 6 6-6M4 20h16"/></svg></a>
+        <a class="btn btn--ghost" href="#contact">Contact</a>
       </div>
-      <div class="portrait-wrap reveal"><div class="portrait"><img class="portrait__img" src="assets/headshot.jpg" alt="Portrait of Melvin Jackson" /></div></div>
-    </section>
+    </div>
+    <div class="arch reveal">
+      <div class="arch__ring"></div>
+      <img class="arch__img" src="assets/headshot.jpg" alt="Portrait of Melvin Jackson" />
+      <div class="arch__dot" aria-hidden="true">MJ</div>
+    </div>
+  </section>
+
+  <div class="marquee" aria-hidden="true"><div class="marquee__track"><span>Threat Hunting</span><span>Email Security</span><span>Malware Analysis</span><span>Vulnerability Management</span><span>Nmap</span><span>OpenVAS</span><span>Tenable</span><span>Wireshark</span><span>MITRE ATT&amp;CK</span><span>NIST</span><span>FedRAMP</span><span>Zero Trust</span><span>ISO 27001</span><span>Python</span><span>SQL</span><span>Cloud Security</span><span>Threat Hunting</span><span>Email Security</span><span>Malware Analysis</span><span>Vulnerability Management</span><span>Nmap</span><span>OpenVAS</span><span>Tenable</span><span>Wireshark</span><span>MITRE ATT&amp;CK</span><span>NIST</span><span>FedRAMP</span><span>Zero Trust</span><span>ISO 27001</span><span>Python</span><span>SQL</span><span>Cloud Security</span></div></div>
+
+  <section class="wrap section" id="about">
+    <div class="sec-head"><span class="sec-num">01</span><div><h2 class="sec-title">About me</h2><p class="sec-sub">Cybersecurity associate focused on threat research, vulnerability assessment, and clear communication.</p></div></div>
+    <div class="bento">
+      <div class="tile span2 row2 reveal">
+        <div class="tile__label">Who I am</div>
+        <h3>Threat Researcher at KnowBe4</h3>
+        <p>I investigate phishing emails, analyze malware, and track threat campaigns. Before that I completed internships in mobile application security at NowSecure, AI risk and governance at InterSec, and enterprise vulnerability assessment with the Department of Homeland Security.</p>
+        <p style="margin-top:12px;">I like turning technical findings into something both engineers and non-technical readers can act on, and I keep learning through labs, workshops, and personal projects.</p>
+      </div>
+      <div class="tile reveal"><div class="stat">30%+</div><p>fewer false positives and false negatives from email classification work at KnowBe4</p></div>
+      <div class="tile reveal"><div class="stat">100+</div><p>analyst hours saved by recommendations from a DHS vulnerability platform evaluation</p></div>
+      <div class="tile tile--gold reveal"><div class="tile__label">Education</div><h3>George Mason University</h3><p>B.S. Information Technology, Cybersecurity &middot; May 2026 &middot; GPA 3.7</p></div>
+      <div class="tile reveal"><div class="tile__label">Certifications</div><div class="certs"><span class="chip">CompTIA Security+</span><span class="chip">AWS Certified Cloud Practitioner</span></div></div>
+    </div>
+  </section>
+
+  <section class="wrap section" id="projects">
+    <div class="sec-head"><span class="sec-num">02</span><div><h2 class="sec-title">Projects</h2><p class="sec-sub">Five projects across vulnerability management, network analysis, AI-assisted development, and team leadership.</p></div></div>
+    <div class="filter" role="tablist" aria-label="Filter projects">
+      <button class="filter__btn is-active" data-filter="all" role="tab" aria-selected="true">All</button>
+      <button class="filter__btn" data-filter="vuln" role="tab" aria-selected="false">Vulnerability Management</button>
+      <button class="filter__btn" data-filter="detection" role="tab" aria-selected="false">Detection</button>
+      <button class="filter__btn" data-filter="ai" role="tab" aria-selected="false">AI &amp; Development</button>
+      <button class="filter__btn" data-filter="leadership" role="tab" aria-selected="false">Leadership</button>
+    </div>
+    <div class="pgrid" id="proj-grid">
+        <a class="pcard reveal" href="projects/atcap-capstone.html" data-tags="leadership" aria-label="ATCAP Senior Capstone">
+          <div class="pcard__thumb pcard__thumb--code" aria-hidden="true"><div><div style="opacity:.55;">// website uptime</div><div class="ln">{ before: ~25%, after: ~99.9% }</div><div class="ln">&darr; $248.33/mo &rarr; $23.00/mo</div></div></div>
+          <div class="pcard__body">
+            <span class="pcard__tag">Leadership &middot; IT Consulting</span>
+            <h3 class="pcard__title">ATCAP Senior Capstone</h3>
+            <p class="pcard__desc">Led a five-person team delivering a reliable website, structured job application form, and automated review script for a home healthcare client.</p>
+            <div class="pcard__foot"><span>2025&ndash;2026</span><b>Open &rarr;</b></div>
+          </div>
+        </a>
+        <a class="pcard reveal" href="projects/vuln-labs.html" data-tags="vuln" aria-label="Vulnerability Assessment Labs">
+          <div class="pcard__thumb"><img src="assets/nessus-localhost-scan.jpg" alt="" loading="lazy"></div>
+          <div class="pcard__body">
+            <span class="pcard__tag">Vulnerability Management</span>
+            <h3 class="pcard__title">Vulnerability Assessment Labs</h3>
+            <p class="pcard__desc">Hands-on scanning with Nmap, Nessus, and OpenVAS. Compared scanner results, found an unpatched CVE, and wrote a report with CVSS scores and remediation steps.</p>
+            <div class="pcard__foot"><span>LABS &middot; 2026</span><b>Open &rarr;</b></div>
+          </div>
+        </a>
+        <a class="pcard reveal" href="projects/wireshark.html" data-tags="detection" aria-label="Wireshark Traffic Analysis">
+          <div class="pcard__thumb pcard__thumb--code" aria-hidden="true"><div><div style="opacity:.55;">// capture.filter</div><div class="ln">tls.handshake.type == 1</div><div class="ln">&rarr; Client Hello &middot; SNI &middot; DNS &middot; ARP</div></div></div>
+          <div class="pcard__body">
+            <span class="pcard__tag">Detection &middot; Networking</span>
+            <h3 class="pcard__title">Wireshark Traffic Analysis</h3>
+            <p class="pcard__desc">SIEM lab analyzing real traffic: Teams calls, DNS, TLS handshakes, and ARP, and what metadata reveals even when traffic is encrypted.</p>
+            <div class="pcard__foot"><span>LAB &middot; 2026</span><b>Open &rarr;</b></div>
+          </div>
+        </a>
+        <a class="pcard reveal" href="projects/kiro-dashboard.html" data-tags="ai" aria-label="Productivity Dashboard with Amazon Kiro">
+          <div class="pcard__thumb"><img src="assets/dashboard-pomodoro.jpg" alt="" loading="lazy"></div>
+          <div class="pcard__body">
+            <span class="pcard__tag">AWS &middot; AI-assisted dev</span>
+            <h3 class="pcard__title">Productivity Dashboard with Amazon Kiro</h3>
+            <p class="pcard__desc">Built at an AWS workshop with AI-assisted development: Pomodoro timer, task tracker, and live weather.</p>
+            <div class="pcard__foot"><span>WORKSHOP &middot; 2026</span><b>Open &rarr;</b></div>
+          </div>
+        </a>
+        <a class="pcard reveal" href="projects/ai-chatbot.html" data-tags="ai" aria-label="Free AI Chatbot">
+          <div class="pcard__thumb pcard__thumb--code" aria-hidden="true"><div><div style="opacity:.55;">$ python app.py</div><div class="ln">{ provider: "gemini" | "ollama", tests: 20 }</div><div class="ln">&rarr; streaming &middot; memory &middot; save/load</div></div></div>
+          <div class="pcard__body">
+            <span class="pcard__tag">Python &middot; AI</span>
+            <h3 class="pcard__title">Free AI Chatbot</h3>
+            <p class="pcard__desc">Browser-based chatbot with three bot personalities, memory, streaming replies, and save/load. Runs on the free Gemini tier or fully offline with Ollama.</p>
+            <div class="pcard__foot"><span>PYTHON &middot; MIT &middot; 20 TESTS</span><b>Open &rarr;</b></div>
+          </div>
+        </a>
+    </div>
+    <div class="callout" style="margin-top:26px;"><b>More on GitHub.</b> Write-ups live in my <a href="https://github.com/mj65825/cybersecurity-portfolio">cybersecurity-portfolio</a> repository and the chatbot has <a href="https://github.com/mj65825/ai-chatbot">its own repo</a>.</div>
+  </section>
+
+  <section class="wrap section" id="experience">
+    <div class="sec-head"><span class="sec-num">03</span><div><h2 class="sec-title">Experience</h2><p class="sec-sub">Where I&rsquo;ve worked and interned.</p></div></div>
+    <div class="scroller">
+      <article class="xp"><div class="xp__date">Jul 2026 &ndash; Present</div><h3 class="xp__role">Cybersecurity Threat Researcher</h3><div class="xp__org">KnowBe4 &middot; Arlington, VA</div><ul><li>Investigate phishing emails, analyze malware, and track threat campaigns in the Threat Research Lab.</li><li>Label and classify thousands of emails daily to refine detection logic, contributing to a 30%+ reduction in false positives and false negatives.</li><li>Analyze large datasets to establish threat patterns across regions, industries, and business segments.</li><li>Deploy and configure endpoint, email, web, and network protection to support threat research.</li><li>Triage alerts and contribute to external-facing Threat Labs research content.</li></ul></article>
+      <article class="xp"><div class="xp__date">Jan 2026 &ndash; Apr 2026</div><h3 class="xp__role">Mobile Application Security Intern</h3><div class="xp__org">NowSecure &middot; Vienna, VA</div><ul><li>Static and dynamic analysis of Android and iOS applications to find vulnerabilities and malicious behaviors.</li><li>Guided mobile app testing on the NowSecure platform, plus research comparing open-source, commercial, and traditional AI pentesting tools.</li></ul></article>
+      <article class="xp"><div class="xp__date">Oct 2025 &ndash; Dec 2025</div><h3 class="xp__role">Commonwealth Cybersecurity Initiative Intern</h3><div class="xp__org">InterSec &middot; Leesburg, VA</div><ul><li>Led a multi-phase AI risk and cybersecurity initiative evaluating governance controls, data management, and control effectiveness.</li><li>Produced compliance findings and policy recommendations for senior leadership.</li></ul></article>
+      <article class="xp"><div class="xp__date">Jun 2025 &ndash; Sep 2025</div><h3 class="xp__role">Vulnerability Assessment Team Intern</h3><div class="xp__org">Dept. of Homeland Security &middot; Ashburn, VA</div><ul><li>Ran enterprise vulnerability assessments with Nmap, OpenVAS, and Tenable.</li><li>Analyzed CVE and CVSS data to build risk-prioritized remediation queues.</li><li>Evaluated AI-enabled vulnerability management platforms and saved 100+ analyst hours.</li></ul></article>
+      <article class="xp"><div class="xp__date">Aug 2025 &ndash; May 2026</div><h3 class="xp__role">IT Consulting Capstone, Team Lead</h3><div class="xp__org">ATCAP Home Healthcare Solutions &middot; GMU</div><ul><li>Led a five-person team delivering three IT solutions for a healthcare client.</li><li>Website uptime went from about 25% to about 99.9%. <a href="projects/atcap-capstone.html">Read the case study</a>.</li></ul></article>
+    </div>
+    <p class="hint">Swipe or scroll &rarr;</p>
+  </section>
+
+  <section class="wrap section" id="skills">
+    <div class="sec-head"><span class="sec-num">04</span><div><h2 class="sec-title">Skills</h2><p class="sec-sub">Tools, frameworks, and languages I work with.</p></div></div>
+    <div class="bento">
+      <div class="tile reveal"><div class="tile__label">Security</div><span class="chip">Threat Hunting</span><span class="chip">Email Security</span><span class="chip">Vulnerability Management</span><span class="chip">Application Security</span><span class="chip">Network Security</span><span class="chip">Digital Forensics</span><span class="chip">Cloud Security</span></div>
+      <div class="tile reveal"><div class="tile__label">Frameworks</div><span class="chip">NIST</span><span class="chip">MITRE ATT&amp;CK</span><span class="chip">FedRAMP</span><span class="chip">Zero Trust</span><span class="chip">ISO 27001</span></div>
+      <div class="tile reveal"><div class="tile__label">Tools</div><span class="chip">Nmap</span><span class="chip">OpenVAS</span><span class="chip">Tenable / Nessus</span><span class="chip">Wireshark</span><span class="chip">SIEM</span></div>
+      <div class="tile reveal"><div class="tile__label">Languages &amp; systems</div><span class="chip">Python</span><span class="chip">SQL</span><span class="chip">MongoDB</span><span class="chip">Windows</span><span class="chip">macOS</span><span class="chip">Linux</span></div>
+    </div>
+  </section>
+
+  <section class="wrap section" id="contact">
+    <div class="sec-head"><span class="sec-num">05</span><div><h2 class="sec-title">Contact</h2><p class="sec-sub">Open to cybersecurity roles. Happy to talk about threat research, vulnerability management, and security projects.</p></div></div>
+    <div class="contact">
+      <div class="tile tile--gold reveal"><div class="tile__label">Let&rsquo;s talk</div><div class="contact__big">Let&rsquo;s build something secure.</div>
+        <div class="ctas"><a class="btn" style="background:#0a0a0b;color:#fff;border-color:#0a0a0b;" href="MelvinJackson_Cybersecurity_Resume.pdf" download>Download resume <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v12M6 10l6 6 6-6M4 20h16"/></svg></a></div></div>
+      <div class="clinks reveal">
+        <a class="clink" href="mailto:melvin11jackson@gmail.com"><div><small>Email</small><span>melvin11jackson@gmail.com</span></div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
+        <a class="clink" href="https://www.linkedin.com/in/melvin-jackson/" target="_blank" rel="noopener"><div><small>LinkedIn</small><span>linkedin.com/in/melvin-jackson</span></div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
+        <a class="clink" href="https://github.com/mj65825" target="_blank" rel="noopener"><div><small>GitHub</small><span>github.com/mj65825</span></div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
+      </div>
+    </div>
+  </section>
+  <div class="wrap">
     <footer class="foot">
       <span>&copy; 2026 Melvin Jackson</span>
-      <div class="foot__social"><a class="" href="https://www.linkedin.com/in/melvin-jackson/" aria-label="LinkedIn" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5A2.5 2.5 0 1 1 5 8.5a2.5 2.5 0 0 1-.02-5zM3 9.5h4v11H3zm7 0h3.8v1.6h.06c.53-.9 1.83-1.9 3.77-1.9C21.3 9.2 22 11.5 22 14.3V20.5h-4v-5.5c0-1.32-.02-3-1.83-3-1.83 0-2.11 1.43-2.11 2.9v5.6h-4z"/></svg></a><a class="" href="https://github.com/mj65825" aria-label="GitHub" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5a11.5 11.5 0 0 0-3.64 22.42c.58.11.79-.25.79-.56v-2c-3.2.7-3.87-1.36-3.87-1.36-.53-1.34-1.3-1.7-1.3-1.7-1.05-.72.08-.7.08-.7 1.17.08 1.78 1.2 1.78 1.2 1.04 1.77 2.72 1.26 3.38.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.68 0-1.25.45-2.28 1.19-3.08-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11 11 0 0 1 5.79 0c2.2-1.49 3.17-1.18 3.17-1.18.64 1.59.24 2.76.12 3.05.74.8 1.19 1.83 1.19 3.08 0 4.41-2.7 5.38-5.27 5.67.41.35.77 1.04.77 2.1v3.11c0 .31.21.68.8.56A11.5 11.5 0 0 0 12 .5z"/></svg></a><a class="" href="mailto:melvin11jackson@gmail.com" aria-label="Email"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></a></div>
+      <div class="foot__social"><a href="https://www.linkedin.com/in/melvin-jackson/" aria-label="LinkedIn" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5A2.5 2.5 0 1 1 5 8.5a2.5 2.5 0 0 1-.02-5zM3 9.5h4v11H3zm7 0h3.8v1.6h.06c.53-.9 1.83-1.9 3.77-1.9C21.3 9.2 22 11.5 22 14.3V20.5h-4v-5.5c0-1.32-.02-3-1.83-3-1.83 0-2.11 1.43-2.11 2.9v5.6h-4z"/></svg></a><a href="https://github.com/mj65825" aria-label="GitHub" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5a11.5 11.5 0 0 0-3.64 22.42c.58.11.79-.25.79-.56v-2c-3.2.7-3.87-1.36-3.87-1.36-.53-1.34-1.3-1.7-1.3-1.7-1.05-.72.08-.7.08-.7 1.17.08 1.78 1.2 1.78 1.2 1.04 1.77 2.72 1.26 3.38.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.68 0-1.25.45-2.28 1.19-3.08-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11 11 0 0 1 5.79 0c2.2-1.49 3.17-1.18 3.17-1.18.64 1.59.24 2.76.12 3.05.74.8 1.19 1.83 1.19 3.08 0 4.41-2.7 5.38-5.27 5.67.41.35.77 1.04.77 2.1v3.11c0 .31.21.68.8.56A11.5 11.5 0 0 0 12 .5z"/></svg></a><a href="mailto:melvin11jackson@gmail.com" aria-label="Email"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></a></div>
     </footer>
   </div>
 </main>
 <button class="to-top" id="toTop" aria-label="Back to top"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 15l7-7 7 7"/></svg></button>
-<script src="main.js"></script>
+<script src="main.js?v=3"></script>
 </body>
 </html>
