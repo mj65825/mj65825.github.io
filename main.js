@@ -4,7 +4,7 @@
   function set(k, v) { try { localStorage.setItem(k, v); } catch (e) {} }
 
   root.dataset.theme = get('theme') || 'dark';
-  root.dataset.color = get('color') || 'blue';
+  root.dataset.color = get('color') || 'gold';
 
   var sidebar = document.getElementById('sidebar');
   var menu = document.getElementById('menuToggle');
@@ -46,6 +46,13 @@
       });
     });
   });
+
+  var typed = document.getElementById('typed');
+  if (typed) {
+    var txt = typed.dataset.text.replace('&rarr;', '\u2192'), i = 0;
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) { typed.textContent = txt; }
+    else (function tick() { typed.textContent = txt.slice(0, ++i); if (i < txt.length) setTimeout(tick, 70); })();
+  }
 
   var top = document.getElementById('toTop');
   window.addEventListener('scroll', function () { top.classList.toggle('show', window.scrollY > 500); });

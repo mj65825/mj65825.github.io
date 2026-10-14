@@ -38,9 +38,9 @@ def page(fname, title, desc, active, body, depth=0):
               f'<a class="icon-btn" href="{GITHUB}" aria-label="GitHub" target="_blank" rel="noopener">{GH}</a>'
               f'<a class="icon-btn" href="mailto:{EMAIL}" aria-label="Email">{MAIL}</a>')
     fsocial = social.replace("icon-btn", "").replace('class=" "', "")
-    swatches = "".join(f'<span class="swatch" data-color="{c}" role="button" tabindex="0" aria-label="{c.title()}"></span>' for c in ["blue", "teal", "violet", "rose", "amber"])
+    swatches = "".join(f'<span class="swatch" data-color="{c}" role="button" tabindex="0" aria-label="{c.title()}"></span>' for c in ["gold", "blue", "teal", "violet", "rose", "amber"])
     out = f'''<!doctype html>
-<html lang="en" data-theme="dark">
+<html lang="en" data-theme="dark" data-color="gold">
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -91,7 +91,7 @@ def page(fname, title, desc, active, body, depth=0):
 
 def head(eyebrow, title, lead=""):
     l = f'<p class="hero__lead" style="margin-top:14px;">{lead}</p>' if lead else ""
-    return f'<div class="h-block"><div class="h-eyebrow">{eyebrow}</div><h1 class="h-title">{title}</h1><div class="h-rule"></div>{l}</div>'
+    return f'<div class="h-block"><div class="h-eyebrow">// {eyebrow}</div><h1 class="h-title">{title}</h1><div class="h-rule"></div>{l}</div>'
 
 
 # ---------------------------------------------------------------- home
@@ -99,7 +99,8 @@ home = f'''
     <section class="hero" style="position:relative;">
       <div class="hero-bg" aria-hidden="true"><div class="hero-bg__glow"></div><div class="hero-bg__glow hero-bg__glow--2"></div></div>
       <div class="hero-flow">
-        <div class="hero__eyebrow">Cybersecurity &middot; Northern Virginia</div>
+        <div class="status"><span class="status__dot"></span>ACTIVE &middot; Threat Research Lab, KnowBe4</div>
+        <div class="prompt" aria-hidden="true">$ <span id="typed" data-text="whoami &rarr; melvin.jackson"></span><span class="caret"></span></div>
         <h1 class="hero__hello">Hi, I&rsquo;m <span class="hero__name-script">{NAME}!</span></h1>
         <h2 class="hero__role">I&rsquo;m a <span class="accent">Cybersecurity Analyst</span></h2>
         <p class="hero__lead">I research phishing and malware as a Threat Researcher at KnowBe4. I also have hands-on experience in vulnerability assessment, mobile application security, and AI risk and governance. This site shows my projects and what I learned from each one.</p>
@@ -110,7 +111,7 @@ home = f'''
           <a class="btn btn--ghost" href="contact.html">Contact</a>
         </div>
       </div>
-      <div class="portrait reveal"><img class="portrait__img" src="assets/headshot.jpg" alt="Portrait of {NAME}" /></div>
+      <div class="portrait-wrap reveal"><div class="portrait"><img class="portrait__img" src="assets/headshot.jpg" alt="Portrait of {NAME}" /></div><div class="portrait-tag">ID &middot; MJ-2026 &middot; CLEARED FOR HIRE</div></div>
     </section>'''
 page("index.html", f"{NAME} — Cybersecurity Analyst",
      f"{NAME}: cybersecurity analyst and threat researcher at KnowBe4. Security+ and AWS Certified Cloud Practitioner. Projects and resume.", "home", home)
