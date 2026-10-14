@@ -99,7 +99,7 @@ home = f'''
     <section class="hero" style="position:relative;">
       <div class="hero-bg" aria-hidden="true"><div class="hero-bg__glow"></div><div class="hero-bg__glow hero-bg__glow--2"></div></div>
       <div class="hero-flow">
-        <div class="prompt" aria-hidden="true">$ <span id="typed" data-text="whoami &rarr; melvin.jackson"></span><span class="caret"></span></div>
+        <div class="hero__eyebrow">Cybersecurity &middot; Northern Virginia</div>
         <h1 class="hero__hello">Hi, I&rsquo;m <span class="hero__name-script">{NAME}!</span></h1>
         <h2 class="hero__role">I&rsquo;m a <span class="accent">Cybersecurity Analyst</span></h2>
         <p class="hero__lead">I research phishing and malware as a Threat Researcher at KnowBe4. I also have hands-on experience in vulnerability assessment, mobile application security, and AI risk and governance. This site shows my projects and what I learned from each one.</p>
