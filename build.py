@@ -33,6 +33,7 @@ def page(fname, title, desc, body, depth=0):
     home = p + "index.html"
     secs = [("about", "About"), ("projects", "Projects"), ("experience", "Experience"), ("skills", "Skills"), ("contact", "Contact")]
     links = "".join(f'<a class="nav__link" data-sec="{k}" href="{home if depth else ""}#{k}">{v}</a>' for k, v in secs)
+    links += f'<a class="nav__link nav__link--cv" href="{p}cv/">Recruiter view</a>'
     social = (f'<a href="{LINKEDIN}" aria-label="LinkedIn" target="_blank" rel="noopener">{LI}</a>'
               f'<a href="{GITHUB}" aria-label="GitHub" target="_blank" rel="noopener">{GH}</a>'
               f'<a href="mailto:{EMAIL}" aria-label="Email">{MAIL}</a>')
@@ -50,7 +51,7 @@ def page(fname, title, desc, body, depth=0):
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=IBM+Plex+Mono:wght@400;500;600&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="{p}styles.css?v=3" />
+<link rel="stylesheet" href="{p}styles.css?v=4" />
 <script>try{{var d=document.documentElement,t=localStorage.getItem('theme'),c=localStorage.getItem('color');if(t)d.dataset.theme=t;if(c)d.dataset.color=c}}catch(e){{}}</script>
 </head>
 <body id="top">
@@ -75,7 +76,7 @@ def page(fname, title, desc, body, depth=0):
   </div>
 </main>
 <button class="to-top" id="toTop" aria-label="Back to top"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 15l7-7 7 7"/></svg></button>
-<script src="{p}main.js?v=3"></script>
+<script src="{p}main.js?v=4"></script>
 </body>
 </html>
 '''
@@ -230,7 +231,7 @@ index = f'''
       <div class="ctas">
         <a class="btn btn--primary" href="#projects">View Projects {ARROW}</a>
         <a class="btn btn--ghost" href="{RESUME}" download>Resume {DOWN}</a>
-        <a class="btn btn--ghost" href="#contact">Contact</a>
+        <a class="btn btn--ghost" href="cv/">Recruiter view</a>
       </div>
     </div>
     <div class="arch reveal">
@@ -317,9 +318,118 @@ index = f'''
         <a class="clink" href="mailto:{EMAIL}"><div><small>Email</small><span>{EMAIL}</span></div>{ARROW}</a>
         <a class="clink" href="{LINKEDIN}" target="_blank" rel="noopener"><div><small>LinkedIn</small><span>linkedin.com/in/melvin-jackson</span></div>{ARROW}</a>
         <a class="clink" href="{GITHUB}" target="_blank" rel="noopener"><div><small>GitHub</small><span>github.com/mj65825</span></div>{ARROW}</a>
+        <a class="clink" href="cv/"><div><small>Recruiter view</small><span>Plain, fast, printable r&eacute;sum&eacute;</span></div>{ARROW}</a>
       </div>
     </div>
   </section>'''
 page("index.html", f"{NAME} — Cybersecurity Analyst",
      f"{NAME}: cybersecurity analyst and threat researcher at KnowBe4. Security+ and AWS Certified Cloud Practitioner. Projects and resume.", index)
 print("built")
+
+
+# ---------------------------------------------------------------- recruiter view (plain, fast, printable)
+import json
+
+SITE = "https://mj65825.github.io/"
+PHONE = "(703) 469-7026"
+
+CV_EXP = [
+    ("Cybersecurity Threat Researcher", "KnowBe4 &middot; Arlington, VA", "Jul 2026 &ndash; Present", [
+        "Investigate phishing emails, analyze malware, and track threat campaigns within the KnowBe4 Threat Research Lab to identify emerging attack patterns and techniques.",
+        "Label and classify thousands of emails daily to refine detection logic, contributing to a 30%+ reduction in false positives and false negatives.",
+        "Analyze trends across large datasets to establish threat patterns across regions, industries, and business segments.",
+        "Deploy and configure endpoint, email, web, and network protection to support threat research and detection workflows.",
+        "Triage, investigate, and respond to alerts from the email platform and contribute to external-facing Threat Labs research content."]),
+    ("Mobile Application Security Intern", "NowSecure &middot; Vienna, VA", "Jan 2026 &ndash; Apr 2026", [
+        "Conducted static and dynamic analysis of Android and iOS applications to identify vulnerabilities, malicious behaviors, and security risks.",
+        "Performed guided mobile application testing and researched AI pentesting tools, comparing open-source, commercial, and traditional options."]),
+    ("Commonwealth Cybersecurity Initiative Intern", "InterSec &middot; Leesburg, VA", "Oct 2025 &ndash; Dec 2025", [
+        "Led a multi-phase AI risk and cybersecurity initiative evaluating governance controls, data management, and control effectiveness.",
+        "Produced compliance findings and policy recommendations for senior leadership."]),
+    ("Vulnerability Assessment Team Intern", "U.S. Department of Homeland Security &middot; Ashburn, VA", "Jun 2025 &ndash; Sep 2025", [
+        "Conducted enterprise vulnerability assessments using Nmap, OpenVAS, and Tenable, identifying exposed services, misconfigurations, and high-risk vulnerabilities.",
+        "Analyzed CVE and CVSS data to build risk-prioritized remediation queues supporting continuous monitoring and incident triage.",
+        "Evaluated AI-enabled vulnerability management platforms; recommendations improved remediation workflows and saved 100+ analyst hours."]),
+]
+CV_PROJ = [
+    ("IT Consulting Capstone, Team Lead &middot; ATCAP Home Healthcare Solutions", "Aug 2025 &ndash; May 2026",
+     "Led a five-person team delivering a website, a structured job application form, and a Python application-review script. Website uptime improved from about 25% to about 99.9%.", "projects/atcap-capstone.html"),
+    ("Vulnerability Assessment Labs", "2026",
+     "Scanned my own system and a Hack The Box target with Nmap, Nessus, and OpenVAS; compared scanner findings and wrote a CVSS-scored remediation report.", "projects/vuln-labs.html"),
+    ("Wireshark Traffic Analysis", "2026",
+     "Analyzed real captures (DNS, TLS handshakes, ARP, Teams traffic) in a SIEM lab and documented what encrypted traffic metadata reveals.", "projects/wireshark.html"),
+    ("Free AI Chatbot", "2026",
+     "Python chatbot with Gemini and local Ollama providers, memory, streaming, and 20 offline pytest tests; secrets kept out of source.", "projects/ai-chatbot.html"),
+]
+CV_SKILLS = [
+    ("Security", "Threat hunting, email security, malware analysis, vulnerability management, application security, network security, digital forensics, cloud security"),
+    ("Frameworks", "NIST, MITRE ATT&amp;CK, FedRAMP, Zero Trust Architecture, ISO 27001"),
+    ("Tools", "Nmap, OpenVAS, Tenable / Nessus, Wireshark, SIEM"),
+    ("Languages and systems", "Python, SQL, MongoDB; Windows, macOS, Linux"),
+    ("Networking", "TCP/IP, DNS, encryption, firewalls, authentication, perimeter protection"),
+]
+
+exp_html = "".join(
+    f'<article class="item"><header><h3>{r}</h3><p class="meta"><span>{o}</span><time>{d}</time></p></header><ul>' + "".join(f"<li>{b}</li>" for b in bl) + "</ul></article>"
+    for r, o, d, bl in CV_EXP)
+proj_html = "".join(
+    f'<article class="item"><header><h3>{t}</h3><p class="meta"><span></span><time>{d}</time></p></header><p>{x} <a href="../{u}">Details</a></p></article>'
+    for t, d, x, u in CV_PROJ)
+skills_html = "".join(f"<p><strong>{k}:</strong> {v}</p>" for k, v in CV_SKILLS)
+
+ld = json.dumps({
+    "@context": "https://schema.org", "@type": "Person", "name": NAME, "jobTitle": "Cybersecurity Analyst",
+    "worksFor": {"@type": "Organization", "name": "KnowBe4"}, "url": SITE, "email": EMAIL,
+    "sameAs": [LINKEDIN, GITHUB], "address": {"@type": "PostalAddress", "addressLocality": "Alexandria", "addressRegion": "VA", "addressCountry": "US"},
+    "alumniOf": {"@type": "CollegeOrUniversity", "name": "George Mason University"},
+    "hasCredential": ["CompTIA Security+", "AWS Certified Cloud Practitioner"],
+})
+
+cv = f'''<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>{NAME} · Cybersecurity Analyst · R&eacute;sum&eacute;</title>
+<meta name="description" content="{NAME}, Cybersecurity Analyst and Threat Researcher at KnowBe4. Security+, AWS Cloud Practitioner. Experience, projects, skills, and contact." />
+<link rel="icon" href="{FAV}" />
+<link rel="stylesheet" href="cv.css?v=1" />
+<script type="application/ld+json">{ld}</script>
+</head>
+<body>
+<a class="skip" href="#cv">Skip to r&eacute;sum&eacute;</a>
+<main id="cv" class="cv">
+  <header class="cv-head">
+    <div>
+      <p class="eyebrow">Open to cybersecurity roles</p>
+      <h1>{NAME}</h1>
+      <p class="role">Cybersecurity Analyst &middot; Threat Researcher at KnowBe4 &middot; Alexandria, VA</p>
+    </div>
+    <nav class="cv-actions" aria-label="R&eacute;sum&eacute; actions">
+      <a class="btn btn-solid" href="../{RESUME}" download>Download PDF</a>
+      <a class="btn" href="../">Open the full portfolio</a>
+    </nav>
+  </header>
+  <ul class="contact" aria-label="Contact">
+    <li><a href="mailto:{EMAIL}">{EMAIL}</a></li>
+    <li><a href="tel:+17034697026">{PHONE}</a></li>
+    <li><a href="{LINKEDIN}" target="_blank" rel="noopener">LinkedIn</a></li>
+    <li><a href="{GITHUB}" target="_blank" rel="noopener">GitHub</a></li>
+  </ul>
+  <section aria-labelledby="s-sum"><h2 id="s-sum">Summary</h2>
+    <p>Cybersecurity associate with hands-on experience in vulnerability assessment, threat detection, security monitoring, and compliance across enterprise environments. Skilled at identifying and prioritizing risk, conducting static and dynamic analysis, and communicating technical findings to technical and non-technical audiences. U.S. citizen.</p></section>
+  <section aria-labelledby="s-exp"><h2 id="s-exp">Experience</h2>{exp_html}</section>
+  <section aria-labelledby="s-proj"><h2 id="s-proj">Projects</h2>{proj_html}</section>
+  <section aria-labelledby="s-skills"><h2 id="s-skills">Skills</h2>{skills_html}</section>
+  <section aria-labelledby="s-edu"><h2 id="s-edu">Education and certifications</h2>
+    <article class="item"><header><h3>B.S. Information Technology, Cybersecurity concentration</h3><p class="meta"><span>George Mason University &middot; GPA 3.7</span><time>May 2026</time></p></header></article>
+    <p><strong>Certifications:</strong> CompTIA Security+, AWS Certified Cloud Practitioner</p></section>
+  <footer class="cv-foot">&copy; 2026 {NAME} &middot; <a href="../">Portfolio</a></footer>
+</main>
+</body>
+</html>
+'''
+os.makedirs(os.path.join(ROOT, "cv"), exist_ok=True)
+with open(os.path.join(ROOT, "cv", "index.html"), "w", encoding="utf-8", newline="\n") as f:
+    f.write(cv)
+print("cv built")
