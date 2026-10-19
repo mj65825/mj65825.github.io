@@ -51,7 +51,7 @@ def page(fname, title, desc, body, depth=0):
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=IBM+Plex+Mono:wght@400;500;600&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="{p}styles.css?v=4" />
+<link rel="stylesheet" href="{p}styles.css?v=5" />
 <script>try{{var d=document.documentElement,t=localStorage.getItem('theme'),c=localStorage.getItem('color');if(t)d.dataset.theme=t;if(c)d.dataset.color=c}}catch(e){{}}</script>
 </head>
 <body id="top">
@@ -76,7 +76,7 @@ def page(fname, title, desc, body, depth=0):
   </div>
 </main>
 <button class="to-top" id="toTop" aria-label="Back to top"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 15l7-7 7 7"/></svg></button>
-<script src="{p}main.js?v=4"></script>
+<script src="{p}main.js?v=5"></script>
 </body>
 </html>
 '''
@@ -255,7 +255,7 @@ index = f'''
       <div class="tile reveal"><div class="stat">30%+</div><p>fewer false positives and false negatives from email classification work at KnowBe4</p></div>
       <div class="tile reveal"><div class="stat">100+</div><p>analyst hours saved by recommendations from a DHS vulnerability platform evaluation</p></div>
       <div class="tile tile--gold reveal"><div class="tile__label">Education</div><h3>George Mason University</h3><p>B.S. Information Technology, Cybersecurity &middot; May 2026 &middot; GPA 3.7</p></div>
-      <div class="tile reveal"><div class="tile__label">Certifications</div><div class="certs"><span class="chip">CompTIA Security+</span><span class="chip">AWS Certified Cloud Practitioner</span></div></div>
+      <div class="tile reveal"><div class="tile__label">Certifications</div><div class="certs"><span class="chip">CompTIA Security+</span><span class="chip">AWS Certified Cloud Practitioner</span><span class="chip chip--wip">CompTIA CySA+ &middot; in progress</span></div></div>
     </div>
   </section>
 
@@ -423,7 +423,7 @@ cv = f'''<!doctype html>
   <section aria-labelledby="s-skills"><h2 id="s-skills">Skills</h2>{skills_html}</section>
   <section aria-labelledby="s-edu"><h2 id="s-edu">Education and certifications</h2>
     <article class="item"><header><h3>B.S. Information Technology, Cybersecurity concentration</h3><p class="meta"><span>George Mason University &middot; GPA 3.7</span><time>May 2026</time></p></header></article>
-    <p><strong>Certifications:</strong> CompTIA Security+, AWS Certified Cloud Practitioner</p></section>
+    <p><strong>Certifications:</strong> CompTIA Security+, AWS Certified Cloud Practitioner. <strong>In progress:</strong> CompTIA CySA+</p></section>
   <footer class="cv-foot">&copy; 2026 {NAME} &middot; <a href="../">Portfolio</a></footer>
 </main>
 </body>

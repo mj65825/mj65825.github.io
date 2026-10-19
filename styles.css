@@ -190,3 +190,5 @@ code{font-family:var(--mono);font-size:.88em;color:var(--accent)}
 
 @media(max-width:1100px){.nav__link--cv{display:none}}
 .nav__link--cv{color:var(--accent)}
+
+.chip--wip{background:transparent;border:1px dashed rgba(var(--accent-rgb),.7)}
