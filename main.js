@@ -11,6 +11,20 @@
     root.dataset.theme = next; set('theme', next);
   });
 
+  // mobile menu
+  var menuBtn = document.getElementById('menuBtn');
+  var navLinks = document.getElementById('navLinks');
+  function closeMenu() { navLinks.classList.remove('open'); menuBtn.setAttribute('aria-expanded', 'false'); }
+  menuBtn.addEventListener('click', function () {
+    var open = navLinks.classList.toggle('open');
+    menuBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  navLinks.addEventListener('click', function (e) { if (e.target.closest('a')) closeMenu(); });
+  document.addEventListener('click', function (e) {
+    if (!navLinks.contains(e.target) && !menuBtn.contains(e.target)) closeMenu();
+  });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeMenu(); });
+
   var picker = document.getElementById('colorPicker');
   document.getElementById('paletteToggle').addEventListener('click', function () { picker.classList.toggle('open'); });
   document.addEventListener('click', function (e) {

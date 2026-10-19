@@ -192,3 +192,43 @@ code{font-family:var(--mono);font-size:.88em;color:var(--accent)}
 .nav__link--cv{color:var(--accent)}
 
 .chip--wip{background:transparent;border:1px dashed rgba(var(--accent-rgb),.7)}
+
+/* ---------- mobile polish ---------- */
+.nav__menu{display:none}
+.hero__name,.d-title,.sec-title{padding-left:.12em}
+table.t{display:block;overflow-x:auto;-webkit-overflow-scrolling:touch}
+@media(max-width:900px){
+  .nav{top:10px;gap:4px;padding:6px 6px 6px 14px;width:calc(100vw - 20px);justify-content:space-between}
+  .nav__brand{display:block;border-right:0;margin-right:auto;padding-right:0;font-size:1.8rem}
+  .nav__menu{display:grid}
+  .nav__links{display:none;position:absolute;top:calc(100% + 10px);left:0;right:0;flex-direction:column;align-items:stretch;gap:2px;padding:10px;background:var(--bg2);border:1px solid rgba(var(--accent-rgb),.35);border-radius:22px;box-shadow:0 18px 40px rgba(0,0,0,.45);overflow:visible}
+  .nav__links.open{display:flex}
+  .nav__link,.nav__link--cv{display:block;font-size:.85rem;padding:14px 16px;border-radius:14px;min-height:48px}
+  .tool{width:44px;height:44px}
+  .color-picker{top:calc(100% + 10px);right:0;left:auto;flex-wrap:wrap;justify-content:center}
+  .to-top{width:42px;height:42px;right:14px;bottom:14px}
+  .hero{padding-top:96px;gap:30px}
+  .hero__name{font-size:clamp(3.4rem,17vw,5rem);margin-left:0}
+  .arch{width:min(62%,250px)}
+  .arch__ring{inset:-12px -12px 12px 12px}
+  .arch__dot{width:56px;height:56px;font-size:1.3rem;right:-14px;bottom:40px}
+  .section{padding-top:80px}
+  .sec-num{font-size:3.4rem}
+  .tile{padding:20px}
+  .btn{padding:14px 20px;min-height:46px}
+  .ctas .btn{flex:1 1 auto;justify-content:center}
+  .pcard__thumb,.pcard:nth-child(1) .pcard__thumb{height:170px}
+  .filter{flex-wrap:nowrap;overflow-x:auto;margin-inline:-18px;padding:0 18px 6px;scrollbar-width:none}
+  .filter::-webkit-scrollbar{display:none}
+  .filter__btn{flex:none;min-height:42px}
+  .foot{flex-direction:column;gap:14px;text-align:center}
+  .detail{padding-top:96px}
+  .clink span{font-size:.9rem}
+}
+@media(max-width:600px){
+  .bento{grid-template-columns:1fr}.span2,.span4{grid-column:auto}.row2{grid-row:auto}
+  .xp{flex-basis:88vw}
+  .nav__resume span{display:none}.nav__resume{padding:0;width:44px;height:44px;justify-content:center}
+}
+
+.hero__name,.d-title{line-height:1.22;padding-bottom:.1em}
